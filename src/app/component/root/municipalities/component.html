@@ -1,0 +1,89 @@
+<p-table
+  [value]="this.configService.config.municipalities"
+  [scrollable]="true" scrollHeight="flex"
+  [paginator]="true" [rows]="100" [rowsPerPageOptions]="[10, 25, 50, 100]"
+  [showCurrentPageReport]="true" currentPageReportTemplate="{first}-{last} / {totalRecords}"
+  sortField="term.de" sortMode="single"
+  styleClass="p-datatable-sm"
+>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="padding-left: 0.75rem">
+        {{ "NAME" | translate }}
+        <p-columnFilter *ngIf="translateService.currentLang === 'de'"
+          field="term.deSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'fr'"
+          field="term.frSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'it'"
+          field="term.itSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'en'"
+          field="term.enSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+      </th>
+      <th>
+        {{ "KEY" | translate }}
+        <p-columnFilter
+          field="key" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+      </th>
+      <th>
+        {{ "CANTON" | translate }}
+        <p-columnFilter field="cantons" matchMode="contains" [showMenu]="false" class="dropdown">
+          <ng-template pTemplate="filter" let-filter="filterCallback">
+            <p-dropdown #cantonFilter
+              [options]="this.configService.cantons"
+              placeholder="{{ 'ANY' | translate }}"
+              (onChange)="filter( $event.value ); cantonFilter.showClear = cantonFilter.value != null"
+              [showClear]="false" [autoDisplayFirst]="false"
+            >
+              <ng-template let-option pTemplate="item">
+                {{ option }}
+              </ng-template>
+            </p-dropdown>
+          </ng-template>
+        </p-columnFilter>
+      </th>
+      <th style="width: 6.25rem; min-width: 6.25rem; vertical-align: bottom; text-align: right; padding-right: 1rem; padding-bottom: 0.575rem;">
+        <p-button icon="pi pi-upload"
+          pTooltip="{{ 'IMPORT' | translate }}" tooltipPosition="left" [positionTop]="-8"
+          (click)="import()"
+          styleClass="p-button-success"
+        />
+        <p-button icon="pi pi-plus"
+          pTooltip="{{ 'ADD' | translate }}" tooltipPosition="left" [positionTop]="-8"
+          (click)="add()"
+          styleClass="p-button-success" [ngStyle]="{ marginLeft: '0.25rem' }"
+        />
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-municipality>
+    <tr>
+      <td style="padding-left: 1rem; max-width:50%">{{ municipality.term | multilang }}</td>
+      <td style="padding-left: 0.5rem">{{ municipality.key }}</td>
+      <td style="padding-left: 0.5rem">{{ municipality.cantonList }}</td>
+      <td style="width: 6.25rem; min-width: 6.25rem; text-align: right; padding-right: 1rem">
+        <p-button icon="pi pi-file-edit"
+          pTooltip="{{ 'EDIT' | translate }}" tooltipPosition="left" [positionTop]="-7"
+          (click)="edit( municipality )"
+        />
+        <p-button icon="pi pi-trash"
+          pTooltip="{{ 'DELETE' | translate }}" tooltipPosition="left" [positionTop]="-7"
+          (click)="delete( municipality )"
+          styleClass="p-button-danger" [ngStyle]="{ marginLeft:'0.25rem' }"
+        />
+      </td>
+    </tr>
+  </ng-template>
+
+</p-table>

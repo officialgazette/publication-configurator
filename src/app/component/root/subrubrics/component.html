@@ -1,0 +1,90 @@
+<p-table
+  [value]="this.configService.config.subrubrics"
+  [scrollable]="true" scrollHeight="flex"
+  [paginator]="true" [rows]="100" [rowsPerPageOptions]="[10, 25, 50, 100]"
+  [showCurrentPageReport]="true" currentPageReportTemplate="{first}-{last} / {totalRecords}"
+  sortField="code" sortMode="single"
+  styleClass="p-datatable-sm"
+>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 6rem; padding-left: 0.75rem">
+        {{ "CODE" | translate }}
+        <p-columnFilter field="rubric" matchMode="in" [showMenu]="false" class="dropdown">
+          <ng-template pTemplate="filter" let-filter="filterCallback">
+            <p-multiSelect
+              [options]="this.configService.config.rubrics" optionLabel="code" optionValue="code"
+              placeholder="{{ 'ANY' | translate }}"
+              emptyMessage="&nbsp;"
+              [showClear]="false"
+              (onChange)="filter( $event.value )"
+              panelStyleClass="rubrics-dropdown" [style]="{ width: '5rem' }"
+            >
+              <ng-template let-option pTemplate="item">
+                <div class="p-multiselect-representative-option">
+                  <span class="ml-1">{{ option.code }} - {{ option.name | multilang }}</span>
+                </div>
+              </ng-template>
+            </p-multiSelect>
+          </ng-template>
+        </p-columnFilter>
+      </th>
+      <th>
+        {{ "NAME" | translate }}
+        <p-columnFilter *ngIf="translateService.currentLang === 'de'"
+          field="name.deSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'fr'"
+          field="name.frSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'it'"
+          field="name.itSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'en'"
+          field="name.enSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+      </th>
+      <th style="width: 10.5rem; min-width: 10.5rem; vertical-align: bottom; text-align: right; padding-right: 1rem; padding-bottom: 0.575rem">
+        <p-button icon="pi pi-plus"
+          pTooltip="{{ 'ADD' | translate }}" tooltipPosition="left" [positionTop]="-8"
+          (click)="add()"
+          styleClass="p-button-success"
+        />
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-subrubric>
+    <tr>
+      <td style="padding-left: 1rem; width:6rem">{{ subrubric.code }}</td>
+      <td style="padding-left: 0.5rem">{{ subrubric.name | multilang }}</td>
+      <td style="padding-right: 1rem; width: 10.5rem; min-width: 10.5rem; text-align: right">
+        <p-button icon="pi pi-eye" *ngIf="subrubric.exampleUrl"
+          pTooltip="{{ 'PREVIEW' | translate }}" tooltipPosition="left" [positionTop]="-7"
+          (click)="preview( subrubric.exampleUrl )"
+          styleClass="p-button-help"
+        />
+        <p-button icon="pi pi-file-edit"
+          pTooltip="{{ 'EDIT' | translate }}" tooltipPosition="left" [positionTop]="-7"
+          (click)="edit( subrubric )" [ngStyle]="{ marginLeft:'0.25rem' }"
+        />
+        <p-button icon="pi pi-trash"
+          pTooltip="{{ 'DELETE' | translate }}" tooltipPosition="left" [positionTop]="-7"
+          (click)="delete( subrubric )"
+          styleClass="p-button-danger" [ngStyle]="{ marginLeft:'0.25rem' }"
+        />
+        <p-button icon="pi pi-clone"
+          pTooltip="{{ 'COPY' | translate }}" tooltipPosition="left" [positionTop]="-7"
+          (click)="copy( subrubric )"
+          styleClass="p-button-success" [ngStyle]="{'margin-left':'0.25rem'}"
+        />
+      </td>
+    </tr>
+  </ng-template>
+
+</p-table>

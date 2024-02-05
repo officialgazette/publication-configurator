@@ -1,0 +1,11 @@
+{
+  "/terms/ui/config": {
+    "target": "http://localhost:8080/",
+    "secure": false,
+    "pathRewrite": {
+      "^/terms/ui/config": "/api/v1/config"
+    },
+    "changeOrigin": false,
+    "LogLevel": "debug"
+  }
+}

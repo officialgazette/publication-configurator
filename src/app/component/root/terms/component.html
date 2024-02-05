@@ -1,0 +1,119 @@
+<p-table #table
+  [value]="this.configService.config.terms"
+  [scrollable]="true" scrollHeight="flex"
+  [paginator]="true" [rows]="100" [rowsPerPageOptions]="[10, 25, 50, 100]"
+  [showCurrentPageReport]="true" currentPageReportTemplate="{first}-{last} / {totalRecords}"
+  (onRowReorder)="onRowReorder( $event )"
+  styleClass="p-datatable-sm"
+>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th colspan="3" style="padding-left: 0.75rem">
+        {{ "NAME" | translate }}
+        <p-columnFilter *ngIf="translateService.currentLang === 'de'"
+          field="term.deSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'fr'"
+          field="term.frSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'it'"
+          field="term.itSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'en'"
+          field="term.enSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+      </th>
+      <th>
+        {{ "KEY" | translate }}
+        <p-columnFilter
+          field="key" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+      </th>
+      <th>
+        {{ "TYPE" | translate }}
+        <p-columnFilter field="type" matchMode="equals" [showMenu]="false" class="dropdown">
+          <ng-template pTemplate="filter" let-filter="filterCallback">
+            <p-dropdown #typeFilter
+              [options]="this.configService.types"
+              placeholder="{{ 'ANY' | translate }}"
+              [showClear]="false"
+              [autoDisplayFirst]="false"
+              (onChange)="filter( $event.value ); typeFilter.showClear = typeFilter.value != null"
+            >
+              <ng-template pTemplate="item" let-option>
+                {{ option }}
+              </ng-template>
+            </p-dropdown>
+          </ng-template>
+        </p-columnFilter>
+      </th>
+      <th>
+        {{ "VALUE_TYPE" | translate }}
+        <p-columnFilter field="valueType" matchMode="equals" [showMenu]="false" class="dropdown">
+          <ng-template pTemplate="filter" let-filter="filterCallback">
+            <p-dropdown #valueTypeFilter
+              [options]="this.configService.valueTypes"
+              placeholder="{{ 'ANY' | translate }}"
+              [showClear]="false"
+              [autoDisplayFirst]="false"
+              (onChange)="filter( $event.value ); valueTypeFilter.showClear = valueTypeFilter.value != null"
+            >
+              <ng-template pTemplate="item" let-option>
+                {{ option }}
+              </ng-template>
+            </p-dropdown>
+          </ng-template>
+        </p-columnFilter>
+      </th>
+      <th style="width: 6.25rem; min-width: 6.25rem; vertical-align: bottom; text-align: right; padding-right: 1rem; padding-bottom: 0.575rem">
+        <p-button icon="pi pi-plus"
+          pTooltip="{{ 'ADD' | translate }}" tooltipPosition="left" [positionTop]="-8"
+          (click)="add( null )"
+          styleClass="p-button-success"
+        />
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-term>
+    <tr [pReorderableRow]="this.configService.config.terms.indexOf( term )">
+      <td style="width: 3rem; max-width: 3rem; text-align: center">
+        <span class="pi pi-bars" pReorderableRowHandle></span>
+      </td>
+      <td style="width: 3.5rem; max-width: 3.5rem">
+        <p-button label="{{ this.configService.config.terms.indexOf( term ) + 1 }}"
+          pTooltip="{{ 'MOVE' | translate }}" tooltipPosition="right" [positionTop]="-3.5"
+          (click)="this.move( term )"
+          styleClass="p-button-help button-index"
+        />
+      </td>
+      <td style="padding-left: 1rem; max-width: 50%">{{ term.term | multilang }}</td>
+      <td style="padding-left: 0.5rem">{{ term.key }}</td>
+      <td style="padding-left: 0.5rem">{{ term.type }}</td>
+      <td style="padding-left: 0.5rem">{{ term.valueType }}</td>
+      <td style="padding-right: 1rem; width: 8rem; min-width: 8rem; text-align: right">
+        <p-button icon="pi pi-file-edit"
+          pTooltip="{{ 'EDIT' | translate }}" tooltipPosition="left" [positionTop]="-7"
+          (click)="edit( term )"
+        />
+        <p-button icon="pi pi-trash"
+          pTooltip="{{ 'DELETE' | translate }}" tooltipPosition="left" [positionTop]="-7"
+          (click)="delete( term )"
+          styleClass="p-button-danger" [ngStyle]="{ marginLeft:'0.25rem' }"
+        />
+        <p-button icon="pi pi-plus"
+          pTooltip="{{ 'ADD' | translate }}" tooltipPosition="left" [positionTop]="-7"
+          (click)="add( term )"
+          styleClass="p-button-success" [ngStyle]="{'margin-left':'0.25rem'}"
+        />
+      </td>
+    </tr>
+  </ng-template>
+
+</p-table>

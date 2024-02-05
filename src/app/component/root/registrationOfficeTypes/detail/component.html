@@ -1,0 +1,45 @@
+<div class="input-multi-lang">
+  <label class="input-label">{{ 'NAME' | translate }}</label>
+  <div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">DE</span>
+      <input pInputText type="text"
+        [(ngModel)]="registrationOfficeType.name.de"
+        [placeholder]="registrationOfficeType.name.deSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">FR</span>
+      <input pInputText type="text"
+        [(ngModel)]="registrationOfficeType.name.fr"
+        [placeholder]="registrationOfficeType.name.frSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">IT</span>
+      <input pInputText type="text"
+        [(ngModel)]="registrationOfficeType.name.it"
+        [placeholder]="registrationOfficeType.name.itSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">EN</span>
+      <input pInputText type="text"
+        [(ngModel)]="registrationOfficeType.name.en"
+        [placeholder]="registrationOfficeType.name.enSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+  </div>
+</div>
+
+<div>
+  <label for="code" class="input-label"><b>{{ 'CODE' | translate }}</b></label>
+  <input pInputText type="text" id="code"
+    [(ngModel)]="registrationOfficeType.code"
+    (ngModelChange)="configService.delaySave()"
+  />
+</div>

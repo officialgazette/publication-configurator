@@ -1,0 +1,44 @@
+<div class="import-municipalities-introduction">
+  <p-button label="{{ 'SELECT_FILE' | translate }}"
+    (onClick)="loadCSV()"
+    [style]="{ marginRight: '1rem' }"
+  />
+  <span>{{ "CSV_SPECS" | translate }}</span>
+</div>
+
+<p-table [value]="this.municipalities" styleClass="p-datatable-sm import-municipalities" [scrollable]="true" scrollHeight="flex">
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 2rem"></th>
+      <th>{{ "NAME" | translate }} DE</th>
+      <th>{{ "NAME" | translate }} FR</th>
+      <th>{{ "NAME" | translate }} IT</th>
+      <th>{{ "NAME" | translate }} EN</th>
+      <th>{{ "KEY" | translate }}</th>
+      <th>{{ "CANTON" | translate }}</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-municipality>
+    <tr>
+      <td style="width: 2rem">
+        <i class="pi" [ngClass]="municipality.update ? 'pi-refresh' : 'pi-plus'"></i>
+      </td>
+      <td>{{ municipality.term.de }}</td>
+      <td>{{ municipality.term.fr }}</td>
+      <td>{{ municipality.term.it }}</td>
+      <td>{{ municipality.term.en }}</td>
+      <td>{{ municipality.key }}</td>
+      <td>{{ municipality.cantonList }}</td>
+    </tr>
+  </ng-template>
+
+</p-table>
+
+<div #summary class="import-municipalities-summary">
+  <span>{{ "NEW" | translate }}: <b>{{ this.newCount }}</b> / {{ "UPDATE" | translate }}: <b>{{ this.updateCount }}</b></span>
+  <p-button label="{{ 'IMPORT' | translate }}"
+    (onClick)="import()"
+  />
+</div>

@@ -1,0 +1,793 @@
+body,
+html {
+  margin: 0;
+  overscroll-behavior: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.p-datatable .p-datatable-header,
+.p-datatable.p-datatable-scrollable > .p-datatable-wrapper > .p-datatable-table > .p-datatable-thead,
+.p-datatable .p-datatable-thead > tr > th {
+  background: #eee;
+}
+
+.p-datatable .p-datatable-tbody > tr .disabled {
+  color: #bbb;
+}
+
+.p-button.p-button-link {
+  padding:0 0 0 10px;
+}
+
+.p-button.p-button-link > .p-button-label {
+  color: #888;
+  font-weight: normal;
+}
+
+.p-button.p-button-link:enabled:hover,
+.p-button.p-button-link:enabled:hover > .p-button-label {
+  text-decoration: none;
+}
+
+.lang-active > .p-button-label {
+  color: #495057 !important;
+  text-shadow: 0.5px 0 0;
+}
+
+.p-multiselect .p-multiselect-label,
+.p-inputtext,
+.p-inputgroup-addon {
+  padding: 0.4rem 0.4rem;
+}
+
+.p-inputgroup-addon {
+  min-width: 2.25rem;
+}
+
+.p-dropdown .p-dropdown-trigger,
+.p-multiselect .p-multiselect-trigger {
+  width: 2rem;
+}
+
+.input-multi-lang .p-inputgroup {
+  display: inline-flex;
+  width: calc((100% - 0.75rem) / 4);
+  min-width: 15rem;
+}
+
+.input-multi-lang .p-inputgroup:not(:last-child) {
+  margin-right: 0.25rem;
+}
+
+.p-datatable-thead .checkbox-filter .p-column-filter-row,
+.p-datatable-thead .p-column-filter-row .p-dropdown-items,
+.p-datatable-thead .p-column-filter-row .p-dropdown .p-dropdown-label {
+  text-align: left;
+}
+
+.p-column-filter-menu-button {
+  display: none !important;
+}
+
+.p-datatable-thead .checkbox-filter .p-column-filter-clear-button,
+.p-datatable-thead .dropdown .p-column-filter-clear-button {
+  display: none;
+}
+
+.p-datatable-thead .p-column-filter-clear-button {
+  display: inline-block;
+  top: -2rem;
+}
+
+.p-datatable-thead .p-column-filter-clear-button:hover {
+  background: none;
+  border: none;
+}
+
+.p-datatable-thead .p-column-filter-row {
+  display: block;
+  text-align: right;
+  height: 2.0625rem;
+}
+
+.p-menubar-end .p-dropdown {
+  min-width: 6.5rem;
+}
+
+.p-dropdown-panel .p-dropdown-items {
+  padding: 0;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  padding: 0.4rem 0.4rem;
+}
+
+.p-menubar-end .p-column-filter-row {
+  display: inline-flex;
+}
+
+.p-datatable-header .p-menubar {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+.menubar-container {
+  display: inline-flex;
+  margin-left: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+.menubar-container label {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-tbody tr td {
+  padding: 0.125rem;
+}
+
+.p-button.p-button-icon-only {
+  width: 2rem;
+  padding: 0.375rem 0;
+}
+
+.p-button {
+  padding: 0.5rem 1rem;
+}
+
+.p-button.p-button-icon-only.mini {
+  width: 1.5rem;
+  padding: 0.1rem 0;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  margin-right: 0.5rem;
+}
+
+.p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button {
+  padding: 0.1rem 0;
+}
+
+.p-datatable-tbody .p-inputtext {
+  padding: 0.3rem;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus,
+.p-button:focus,
+.p-inputtext:enabled:focus,
+.p-inputswitch.p-focus .p-inputswitch-slider,
+.p-button.p-button-link:focus,
+.p-button.p-button-link:enabled:focus,
+.p-button.p-button-help:focus,
+.p-button.p-button-help:enabled:focus,
+.p-dialog .p-dialog-header .p-dialog-header-icon:focus,
+.p-dropdown:not(.p-disabled).p-focus,
+.p-multiselect:not(.p-disabled).p-focus,
+textarea:focus {
+  box-shadow: none;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-tbody tr td.p-editable-column {
+  padding-left: 0.4rem;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-tbody tr td.p-editable-column.p-cell-editing {
+  padding-left: 0.03125rem;
+  padding-right: 0.03125rem;
+}
+
+.p-datatable-tbody ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+.p-datatable-tbody ul > li {
+  display: flex;
+  align-items: center;
+}
+
+.p-dialog-content .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+  padding-left:0.2rem;
+}
+
+.p-dialog-content .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+  vertical-align: top;
+  padding-top:0.4375rem;
+}
+
+.p-dialog .p-dialog-content {
+  padding-bottom: 1.5rem;
+}
+
+.form-row {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.form-row label {
+  line-break: strict;
+  margin-right: 0.5rem;
+}
+
+.form-row .p-multiselect {
+  width: calc( 80vw - 12rem);
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.form-row-textarea {
+  text-align: left;
+  padding-top: 0.25rem;
+}
+
+.form-row-textarea > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-row-textarea label {
+  display: block;
+  margin-top: 0.7rem;
+  margin-bottom: 0.6rem;
+}
+
+.form-row-textarea textarea {
+  width: 100%;
+  height: 4rem;
+  border-radius: 0 6px 6px 0 !important;
+}
+
+.form-row-textarea .p-inputgroup {
+  margin-top: 0.25rem;
+  margin-right: 0.25rem;
+  display: inline-flex;
+  width: calc((100% - 0.50rem) / 2);
+  min-width: 15rem;
+}
+
+.form-row-textarea .p-inputgroup-addon {
+  height: 4rem;
+}
+
+.form-row-textarea.multilang {
+  margin-right: -0.25rem;
+}
+
+.right {
+  text-align: right;
+  display: block;
+  align-items: center;
+}
+
+.inputgroup {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.inputgroup label {
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+.p-inputnumber-input {
+  padding: 0.4rem;
+  width: 2.5rem;
+}
+
+.p-inputnumber-input-5 {
+  padding: 0.4rem;
+  width: 4rem;
+}
+
+.p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button {
+  height: 0.5rem;
+  width: 1.2rem;
+  margin-right: 0;
+}
+
+.p-dialog-footer.detail {
+  padding: 0;
+}
+
+.form-row .p-selectbutton {
+  text-align: right;
+}
+
+.form-row .p-selectbutton .p-button-label {
+  font-weight: normal;
+}
+
+.form-row .p-selectbutton .p-button {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.form-row .p-selectbutton .p-button:not(:last-child) {
+  border-right: 1px solid #ced4da;
+  margin-right: -1px;
+}
+
+.form-row .p-selectbutton .p-button:not(:last-child).p-highlight {
+  border-right: 1px solid #3b82f6;
+}
+
+.form-row p-selectbutton.p-button-light > .p-buttonset > .p-highlight {
+  background: #bbb;
+  color: #fff;
+  border-color: #bbb;
+}
+
+.form-row p-selectbutton.p-button-light > .p-buttonset > .p-highlight:hover {
+  background: #aaa;
+  color: #fff;
+  border-color: #aaa;
+}
+
+.form-row p-selectbutton.p-button-light .p-button:not(:last-child).p-highlight {
+  border-right: 1px solid #bbb;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-footer {
+  font-weight: normal;
+  padding: 0.25rem 1rem 0.75rem 1rem;
+  border: none;
+  margin-top: -2px;
+  background: #eee;
+  border-radius: 0 0 6px 6px;
+}
+
+.p-dialog-content .p-datatable.p-datatable-sm .p-datatable-thead > tr.tablefooter > td,
+.p-dialog-content .p-datatable.p-datatable-sm .p-datatable-tbody > tr.tablefooter > td {
+  background: #eee;
+  padding: 0.25rem 1rem 0rem 1rem;
+  border: none;
+}
+
+.p-dialog.subrubric .p-datatable-flex-scrollable {
+  margin-top: 1rem;
+  height: calc(100% - 8.25rem);
+}
+
+.p-dialog.term .p-datatable-flex-scrollable {
+  margin-top: 1rem;
+  height: calc(100% - 12.625rem);
+}
+
+.p-dialog .p-datatable-flex-scrollable > .p-datatable-wrapper {
+  background: #eee;
+  margin-bottom: -0.5px;
+  margin-right: -0.5px;
+}
+
+.p-dialog.pickterms .p-datatable-flex-scrollable > .p-datatable-wrapper {
+  background: #fff;
+}
+
+.p-dialog.term .p-datatable-flex-scrollable > .p-datatable-wrapper {
+  background: #fff;
+}
+
+.p-dialog.pickterms .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.p-button.p-button-help {
+  background: #eee;
+  color: #495057;
+  border-color: #eee;
+}
+
+.p-button.p-button-help:enabled:hover {
+  background: #ccc;
+  color: #495057;
+  border-color: #ccc;
+}
+
+.p-button.p-button-help:enabled:active {
+  background: #bbb;
+  color: #fff;
+  border-color: #bbb;
+}
+
+.p-button.p-button-light,
+p-button.p-button-light > button {
+  background: #ccc;
+  color: #fff;
+  border-color: #ccc;
+}
+
+.p-button.p-button-light:enabled:hover,
+p-button.p-button-light > button:enabled:hover {
+  background: #bbb;
+  color: #fff;
+  border-color: #bbb;
+}
+.p-button.p-button-light:enabled:active,
+p-button.p-button-light > button:enabled:active {
+  background: #aaa;
+  color: #fff;
+  border-color: #aaa;
+}
+
+.p-datatable .p-datatable-tbody > tr.highlight {
+  background: #f0f6ff;
+}
+.p-datatable .p-datatable-tbody > tr.primary {
+  background: #E8EFFC;
+}
+
+span.overridden,
+.p-datatable .p-datatable-tbody > tr.primary > td.name {
+  text-decoration: underline;
+}
+
+.p-paginator .p-dropdown {
+  height: auto;
+}
+
+div.p-paginator-bottom {
+  background: #eee;
+  padding: 0;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: #ddd;
+  color: #495057;
+}
+
+ul.p-menubar-root-list > li.p-menuitem {
+  border-right: 1px solid #ced4da;
+}
+
+.p-menubar ul.p-menubar-root-list > li.p-menuitem > a.p-menuitem-link {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.p-menubar ul.p-menubar-root-list > li.p-menuitem:first-child > a.p-menuitem-link {
+  padding-left: 0.25rem;
+}
+
+div.rubrics-dropdown {
+  min-width: 15rem;
+  max-width: 28rem;
+}
+
+div.types-dropdown {
+  max-width: 20rem;
+}
+
+div.valueTypes-dropdown {
+  max-width: 20rem;
+}
+
+label.input-label {
+  display: inline-block;
+  width: 8rem;
+}
+
+label.lang {
+  margin-left: 1rem;
+  width: 7rem;
+  color: #bbb;
+}
+
+div.inputrow {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+input.input-max-width {
+  width: calc(100% - 8rem);
+}
+
+input.input-default-width {
+  width: 20rem;
+}
+
+input.input-small-width {
+  width: 4rem;
+}
+
+input.input-medium-width {
+  width: 8rem;
+}
+
+div.input-multi-lang > label.input-label {
+  margin-top: 0.5rem;
+}
+
+div.input-multi-lang {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+div.input-multi-lang > div {
+  display: block;
+  margin-left: 8rem;
+  margin-top: -1.85rem;
+}
+
+div.input-multi-lang .p-inputgroup {
+  margin-top: 0.25rem;
+}
+
+div.input-dropdown-default-width div.p-dropdown {
+  min-width: 20rem;
+}
+
+/* fix high-dpi errors */
+.p-dialog-content {
+  margin-top: -0.5px;
+}
+
+.p-dialog-footer {
+  margin-top: -0.5px;
+}
+
+.p-button.minibutton {
+  width: 1.75rem;
+  padding: 0.25rem 0;
+  margin-left: 0.25rem;
+}
+
+.button-index {
+  display: inline-block !important;
+  font-size: 0.825rem;
+  padding: 0.25rem;
+  min-width: 3rem;
+  text-align: center;
+}
+
+.button-index .p-button-label {
+  font-weight: normal;
+}
+
+div.root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overscroll-behavior-y: none;
+}
+
+div.root > p-menubar {
+  flex: 0;
+}
+
+div.root > p-menubar > div.p-menubar {
+  border-radius: 0;
+  box-shadow: 0px -1px #ccc inset;
+  padding: 0.5rem 0.5rem 0rem 0.5rem;
+  background: #ddd;
+  border: none;
+}
+
+div.root > p-tabview {
+  height: 0;
+  flex: 1;
+  overscroll-behavior: none;
+}
+
+div.root > p-tabview > div.p-tabview,
+div.root > p-tabview > div.p-tabview > div.p-tabview-panels,
+div.root > p-tabview > div.p-tabview > div.p-tabview-panels > p-tabpanel > div.p-tabview-panel {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+div.p-datatable-scrollable > div.p-datatable-wrapper {
+  overscroll-behavior: none;
+}
+
+div.root > p-tabview > div.p-tabview > div.p-tabview-panels {
+  padding: 0;
+}
+
+div.root > p-tabview > div.p-tabview > div.p-tabview-nav-container {
+  display: none;
+}
+
+li.activeTab a {
+  text-shadow: 0.5px 0 0;
+}
+
+li.activeTab div,
+div.root .p-menubar-root-list .p-menuitem:not(.p-highlight):not(.p-disabled):not(.menu):not(.menublue).p-focus > .p-menuitem-content {
+  background: #eee;
+  border-radius: 6px 6px 0 0;
+}
+
+div.root .p-menubar-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled):not(.activeTab) > .p-menuitem-content:hover {
+  background: #e7e7e7;
+  border-radius: 6px 6px 0 0;
+  border: 1px solid #d6d6d6;
+  border-bottom: 1px solid #ccc;
+}
+
+div.root .p-menubar-root-list > .p-menuitem {
+  border: none;
+}
+
+div.root .p-menubar-root-list > .p-menuitem > .p-menuitem-content {
+  border-radius: 6px 6px 0 0;
+  border: 1px solid transparent;
+}
+
+div.root .p-menubar-root-list > .p-menuitem > .p-menuitem-content a.p-menuitem-link {
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+}
+
+div.root .p-menubar-root-list > .p-menuitem.activeTab > .p-menuitem-content {
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
+  border-radius: 6px 6px 0 0;
+  background: #eee;
+}
+div.root .p-menubar-end {
+  padding-bottom: 0.25rem;
+  padding-right: 0.5rem;
+}
+
+.p-menubar .p-menuitem.menu.p-highlight > .p-menuitem-content,
+.p-menubar .p-menuitem.menu.p-highlight.p-focus > .p-menuitem-content {
+  border: 1px solid #ced4da;
+  border-bottom: 1px solid #eee;
+  border-radius: 6px 6px 0 0;
+  background: #eee;
+}
+.p-menubar .p-menuitem.menu.p-highlight > .p-menuitem-content .p-menuitem-link .p-menuitem-icon,
+.p-menubar .p-menuitem.menu.p-highlight > .p-menuitem-content .p-menuitem-link .p-submenu-icon,
+.p-menubar .p-menuitem.menu.p-highlight > .p-menuitem-content .p-menuitem-link .p-menuitem-text {
+  color: #495057;
+}
+
+div.root .p-menubar-root-list .p-menuitem:not(.p-highlight):not(.p-disabled):not(.menu).menublue:hover > .p-menuitem-content,
+div.root .p-menubar-root-list .p-menuitem:not(.p-highlight):not(.p-disabled):not(.menu).menublue.p-focus > .p-menuitem-content {
+  background: #3b82f6;
+  color: #fff;
+  border-radius: 0;
+}
+
+div.root .p-menubar-root-list .p-menuitem:not(.p-highlight):not(.p-disabled):not(.menu).menublue:hover > .p-menuitem-content span,
+div.root .p-menubar-root-list .p-menuitem:not(.p-highlight):not(.p-disabled):not(.menu).menublue.p-focus > .p-menuitem-content span {
+  color: #fff;
+}
+
+div.root .p-menubar-root-list .p-menuitem:not(.p-highlight):not(.p-disabled).menu.p-focus > .p-menuitem-content {
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+div.root .p-paginator {
+  background: #eee;
+  border-top: 1px solid #dee2e6;
+  padding: 0.125rem 1rem;
+  border-radius: 0;
+}
+
+.p-tooltip-text {
+  font-size: 0.825rem;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.p-datatable thead.p-datatable-thead th {
+  font-size: 0.825rem;
+  font-weight: normal;
+}
+
+.p-datatable thead.p-datatable-thead th > p-columnfilter > div {
+  margin-top: 0.25rem;
+}
+
+.checkbox-filter > div {
+  padding: 0.4365rem 0 0.25rem 0.25rem;
+}
+
+.cantonrow .p-buttonset {
+  display: block;
+  margin-left: 8rem;
+  margin-top: -1.875rem;
+}
+
+.cantonrow .p-buttonset > .p-button {
+  padding: 0.4rem 0.25rem;
+  min-width: 2.25rem;
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+.cantonrow .p-buttonset > .p-button > .p-button-label {
+  font-weight: normal;
+}
+
+.cantonrow .input-label {
+  margin-top: 0.5rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 0.5;
+  color: #495057;
+}
+
+thead.p-datatable-thead .p-column-filter-menu-button {
+  display: inline-flex !important;
+}
+
+.triStateCheckbox-null-true > .p-checkbox-box {
+  font-family: 'primeicons';
+  font-weight: 500;
+  font-size: 0.75rem;
+  background: #ced4da;
+  color: #fff;
+}
+
+.triStateCheckbox-null-true > .p-checkbox-box:before {
+  content: "\e909";
+}
+
+.triStateCheckbox-false > .p-checkbox-box {
+  background: #ef4444 !important;
+  border-color: #ef4444 !important;
+}
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {
+  box-shadow: none;
+}
+
+li .p-checkbox {
+  margin-top: 0.0625rem;
+  margin-bottom: 0.0625rem;
+  margin-right: 0.5rem;
+}
+
+span.error {
+  color: #dc2626;
+}
+
+.p-dialog-content .p-datatable.p-datatable-sm.import-municipalities {
+  height: calc(100% - 6rem);
+}
+
+.p-dialog-content .p-datatable.p-datatable-sm.import-municipalities .p-datatable-thead > tr > th {
+  padding-left: 0.5rem;
+}
+
+.p-dialog-content .p-datatable.p-datatable-sm.import-municipalities .p-datatable-tbody > tr > td {
+  padding: 0.25rem 0 0.25rem 0.5rem;
+}
+
+.import-municipalities-introduction {
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.import-municipalities-summary {
+  text-align: left;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.p-dropdown .p-dropdown-clear-icon {
+  right: 2rem;
+}

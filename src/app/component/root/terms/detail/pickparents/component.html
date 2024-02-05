@@ -1,0 +1,81 @@
+<p-table
+  [value]="this.enumTerms"
+  [scrollable]="true" scrollHeight="flex"
+  [paginator]="true" [rows]="100"
+  [showCurrentPageReport]="true" currentPageReportTemplate="{first}-{last} / {totalRecords}"
+  styleClass="p-datatable-sm"
+>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 5.25rem; max-width: 5.25rem; padding-left: 0.75rem">
+        {{ "ASSIGNED" | translate }}
+        <p-columnFilter
+          field="assignedParent" type="boolean"
+          [showMenu]="false"
+          class="checkbox-filter"
+        />
+      </th>
+      <th style="padding-left: 1rem">
+        {{ "NAME" | translate }}
+        <p-columnFilter *ngIf="translateService.currentLang === 'de'"
+          field="term.de" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'fr'"
+          field="term.fr" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'it'"
+          field="term.it" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'en'"
+          field="term.en" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+      </th>
+      <th>
+        {{ "KEY" | translate }}
+        <p-columnFilter
+          field="key" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+      </th>
+      <th style="width:15rem;max-width:15rem;padding-right:1rem;">
+        {{ 'TYPE' | translate }}
+        <p-columnFilter field="type" matchMode="equals" [showMenu]="false">
+          <ng-template pTemplate="filter" let-filter="filterCallback">
+            <p-dropdown
+              [options]="this.configService.types"
+              placeholder="{{ 'ANY' | translate }}"
+              [showClear]="true"
+              (onChange)="filter( $event.value )"
+            >
+              <ng-template pTemplate="item" let-option>
+                {{ option }}
+              </ng-template>
+            </p-dropdown>
+          </ng-template>
+        </p-columnFilter>
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-term>
+    <tr>
+      <td style="padding-left: 1rem; padding-top: 0.25rem; padding-bottom: 0.25rem; vertical-align: middle; width: 2rem; max-width: 2rem">
+        <p-checkbox
+          [(ngModel)]="term.assignedParent" [binary]="true"
+          (ngModelChange)="configService.delaySave()"
+        />
+      </td>
+      <td class="name" style="padding-left:1rem">
+        {{ term.term | multilang }}
+      </td>
+      <td>{{term.key}}</td>
+      <td style="padding-right: 1rem">{{term.type}}</td>
+    </tr>
+  </ng-template>
+
+</p-table>

@@ -1,0 +1,41 @@
+<p-confirmDialog [style]="{ width: '50vw' }" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text" />
+
+<div class="root">
+
+  <p-menubar [model]="menuItems">
+    <ng-template pTemplate="end">
+      <div class="menubar-container" style="margin-bottom: 0.1875rem">
+        <p-button type="button" *ngFor="let lang of translateService.getLangs()"
+          [label]="lang | uppercase"
+          (click)="this.setLanguage( lang )"
+          [styleClass]="this.translateService.currentLang === lang ? 'p-button-link lang-active' : 'p-button-link'"
+        />
+      </div>
+    </ng-template>
+  </p-menubar>
+
+  <p-tabView [(activeIndex)]="activeTab">
+
+    <p-tabPanel>
+      <app-root-rubrics/>
+    </p-tabPanel>
+
+    <p-tabPanel>
+      <app-root-subrubrics/>
+    </p-tabPanel>
+
+    <p-tabPanel>
+      <app-root-terms/>
+    </p-tabPanel>
+
+    <p-tabPanel>
+      <app-root-municipalities/>
+    </p-tabPanel>
+
+    <p-tabPanel>
+      <app-root-registrationOfficeTypes/>
+    </p-tabPanel>
+
+  </p-tabView>
+
+</div>

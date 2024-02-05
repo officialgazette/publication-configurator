@@ -1,0 +1,58 @@
+<p-confirmDialog [style]="{ width: '50vw' }" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"/>
+
+<div class="root">
+
+  <p-menubar [model]="menuItems">
+    <ng-template pTemplate="end">
+      <div class="menubar-container" style="margin-top: -0.125rem;">
+        <label for="rubric">{{ "RUBRICS" | translate }}</label>
+        <p-multiSelect id="rubric"
+          [(ngModel)]="this.configService.configTenant.rubrics"
+          [options]="this.configService.configRoot.rubrics" optionLabel="code" optionValue="code"
+          placeholder="{{ 'ANY' | translate }}"
+          [showClear]="false"
+          (onChange)="onChangeRubrics(); configService.delaySave()"
+          [style]="{ width: '20rem' }"
+        >
+          <ng-template let-option pTemplate="item">
+            <div class="p-multiselect-representative-option">
+              <span class="ml-1">{{ option.code }} - {{ option.name | multilang }}</span>
+            </div>
+          </ng-template>
+        </p-multiSelect>
+      </div>
+      <div class="menubar-container" style="margin-top: -0.125rem">
+        <label for="tenant">{{ "TENANT" | translate }}</label>
+        <p-dropdown id="tenant"
+          [(ngModel)]="configService.tenant"
+          [options]="configService.tenants" optionLabel="name"
+          [showClear]="false"
+          (onChange)="onChangeTenant()"
+        />
+      </div>
+      <div class="menubar-container" style="margin-top: -0.125rem; vertical-align: bottom">
+        <p-button icon="pi pi-globe"
+          pTooltip="{{ 'CONFIGURE_LANGUAGES' | translate }}" tooltipPosition="left" [positionTop]="0"
+          (click)="configureLanguages()"
+          styleClass="p-button-warn" [style]="{ display: 'flex', bottom: '0.034375rem' }"
+        />
+      </div>
+      <div class="menubar-container" style="margin-left: 0.3125rem">
+        <p-button type="button" *ngFor="let lang of getLanguages()"
+          [label]="lang | uppercase"
+          (click)="this.setLanguage( lang )"
+          [styleClass]="this.translateService.currentLang === lang ? 'p-button-link lang-active' : 'p-button-link'"
+        />
+      </div>
+    </ng-template>
+  </p-menubar>
+
+  <p-tabView [(activeIndex)]="activeTab">
+
+    <p-tabPanel>
+      <app-tenant-subrubrics/>
+    </p-tabPanel>
+
+  </p-tabView>
+
+</div>

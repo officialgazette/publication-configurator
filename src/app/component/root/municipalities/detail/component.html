@@ -1,0 +1,58 @@
+<div class="input-multi-lang">
+  <label class="input-label">{{ "TERM" | translate }}</label>
+  <div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">DE</span>
+      <input pInputText type="text"
+        [(ngModel)]="municipality.term.de"
+        [placeholder]="municipality.term.deSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">FR</span>
+      <input pInputText type="text"
+        [(ngModel)]="municipality.term.fr"
+        [placeholder]="municipality.term.frSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">IT</span>
+      <input pInputText type="text"
+        [(ngModel)]="municipality.term.it"
+        [placeholder]="municipality.term.itSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">EN</span>
+      <input pInputText type="text"
+        [(ngModel)]="municipality.term.en"
+        [placeholder]="municipality.term.enSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="inputrow">
+  <label for="key" class="input-label"><b>{{ "KEY" | translate }}</b></label>
+  <input pInputText type="text" id="key"
+    [(ngModel)]="municipality.key"
+    (ngModelChange)="configService.delaySave()"
+    class="input-max-width"
+  />
+</div>
+
+<div class="cantonrow">
+  <label class="input-label">{{ "CANTON" | translate }}</label>
+  <div>
+    <p-selectButton
+      [(ngModel)]="municipality.cantons"
+      [options]="configService.cantons"
+      [multiple]="true"
+      (ngModelChange)="configService.delaySave()"
+    />
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<p-table #table
+  [value]="this.configService.config.authorizationRegistrationOfficeTypes"
+  [scrollable]="true" scrollHeight="flex"
+  [paginator]="true" [rows]="100" [rowsPerPageOptions]="[10, 25, 50, 100]"
+  [showCurrentPageReport]="true" currentPageReportTemplate="{first}-{last} / {totalRecords}"
+  (onRowReorder)="onRowReorder( $event )"
+  styleClass="p-datatable-sm"
+>
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th colspan="2" style="padding-left: 0.75rem">
+        {{ "CODE" | translate }}
+        <p-columnFilter
+          field="code" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+      </th>
+      <th>
+        {{ "NAME" | translate }}
+        <p-columnFilter *ngIf="translateService.currentLang === 'de'"
+          field="name.deSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'fr'"
+          field="name.frSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'it'"
+          field="name.itSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+        <p-columnFilter *ngIf="translateService.currentLang === 'en'"
+          field="name.enSubstitute" type="text" matchMode="contains"
+          [showMenu]="false"
+        />
+      </th>
+      <th style="width: 6.25rem; min-width: 6.25rem; vertical-align: bottom; text-align: right; padding-right: 1rem; padding-bottom: 0.575rem">
+        <p-button icon="pi pi-plus"
+          pTooltip="{{ 'ADD' | translate }}" tooltipPosition="left" [positionTop]="-8"
+          (click)="add()"
+          styleClass="p-button-success"
+        />
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-registrationOfficeType>
+    <tr [pReorderableRow]="this.configService.config.authorizationRegistrationOfficeTypes.indexOf( registrationOfficeType )">
+      <td style="width: 3rem; max-width: 3rem; text-align: center">
+        <span class="pi pi-bars" pReorderableRowHandle></span>
+      </td>
+      <td>{{ registrationOfficeType.code }}</td>
+      <td style="padding-left: 0.5rem">{{ registrationOfficeType.name | multilang }}</td>
+      <td style="width: 6.25rem; min-width: 6.25rem; text-align: right; padding-right: 1rem">
+        <p-button icon="pi pi-file-edit"
+          pTooltip="{{ 'EDIT' | translate }}" tooltipPosition="left" [positionTop]="-7"
+          (click)="edit( registrationOfficeType )"
+        />
+        <p-button icon="pi pi-trash"
+          pTooltip="{{ 'DELETE' | translate }}" tooltipPosition="left" [positionTop]="-7"
+          (click)="delete( registrationOfficeType )"
+          styleClass="p-button-danger" [ngStyle]="{ marginLeft: '0.25rem' }"
+        />
+      </td>
+    </tr>
+  </ng-template>
+
+</p-table>

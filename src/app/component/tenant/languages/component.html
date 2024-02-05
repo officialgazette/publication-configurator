@@ -1,0 +1,9 @@
+<div style="margin-top: 2.5rem">
+  <p-selectButton
+    [(ngModel)]="configService.configTenant.languages"
+    [options]="translateService.getLangs()"
+    [multiple]="true"
+    (ngModelChange)="configService.delaySave()"
+    [ngStyle]="{ textAlign: 'center', textTransform: 'uppercase' }"
+  />
+</div>

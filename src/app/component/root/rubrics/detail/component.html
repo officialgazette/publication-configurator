@@ -1,0 +1,47 @@
+<div class="input-multi-lang">
+  <label class="input-label">{{ "NAME" | translate }}</label>
+  <div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">DE</span>
+      <input pInputText type="text"
+        [(ngModel)]="rubric.name.de"
+        [placeholder]="rubric.name.deSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">FR</span>
+      <input pInputText type="text"
+        [(ngModel)]="rubric.name.fr"
+        [placeholder]="rubric.name.frSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">IT</span>
+      <input pInputText type="text"
+        [(ngModel)]="rubric.name.it"
+        [placeholder]="rubric.name.itSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">EN</span>
+      <input pInputText type="text"
+        [(ngModel)]="rubric.name.en"
+        [placeholder]="rubric.name.enSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+  </div>
+</div>
+
+<div>
+  <label for="code" class="input-label"><b>{{ "CODE" | translate }}</b></label>
+  <input pInputText type="text" id="code"
+    [(ngModel)]="rubric.code"
+    maxlength="2"
+    (ngModelChange)="configService.delaySave()"
+    class="input-small-width"
+  />
+</div>

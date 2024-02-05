@@ -1,0 +1,145 @@
+<div class="input-multi-lang">
+  <label class="input-label">{{ "TERM" | translate }}</label>
+  <div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">DE</span>
+      <input pInputText type="text"
+        [(ngModel)]="term.term.de"
+        [placeholder]="term.term.deSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">FR</span>
+      <input pInputText type="text"
+        [(ngModel)]="term.term.fr"
+        [placeholder]="term.term.frSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">IT</span>
+      <input pInputText type="text"
+        [(ngModel)]="term.term.it"
+        [placeholder]="term.term.itSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+    <div class="p-inputgroup">
+      <span class="p-inputgroup-addon">EN</span>
+      <input pInputText type="text"
+        [(ngModel)]="term.term.en"
+        [placeholder]="term.term.enSubstitute"
+        (ngModelChange)="configService.delaySave()"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="inputrow">
+  <label for="key" class="input-label"><b>{{ "KEY" | translate }}</b></label>
+  <input pInputText type="text" id="key"
+    [(ngModel)]="term.key"
+    (ngModelChange)="configService.delaySave()"
+    class="input-max-width"
+  />
+</div>
+
+<div class="inputrow input-dropdown-default-width">
+  <label class="input-label">{{ "TYPE" | translate }}</label>
+  <p-dropdown
+    [options]="configService.types"
+    [(ngModel)]="term.type"
+    [autoDisplayFirst]="false"
+    (ngModelChange)="configService.delaySave()"
+  />
+  <p-button icon="pi pi-list" *ngIf="term.type === 'enumValue'"
+    pTooltip="{{ 'ADD_REMOVE_PARENTS' | translate }}" tooltipPosition="left" [positionTop]="0.5" [positionLeft]="4"
+    (click)="this.pickParents()"
+    styleClass="p-button-success" [style]="{ marginLeft: '0.25rem' }"
+  />
+  <span style="margin-left: 0.5rem">{{ term.parentList }}</span>
+</div>
+
+<div class="inputrow input-dropdown-default-width">
+  <label class="input-label">{{ "VALUE_TYPE" | translate }}</label>
+  <p-dropdown
+    [options]="configService.valueTypes"
+    [(ngModel)]="term.valueType"
+    [autoDisplayFirst]="false"
+    (ngModelChange)="configService.delaySave()"
+  />
+  <p-button icon="pi pi-bars" *ngIf="term.valueType === 'enum'"
+    pTooltip="{{ 'SHOW_VALUES' | translate }}" tooltipPosition="left" [positionTop]="0.5" [positionLeft]="4"
+    (click)="this.showValues()"
+    [style]="{ marginLeft:'0.25rem' }"
+  />
+</div>
+
+<div class="inputrow">
+  <label for="delimiterTitle" class="input-label">{{ "TITLE_DELIMITER" | translate }}</label>
+  <div class="p-inputgroup" style="display: inline-flex; width: 6rem">
+    <input pInputText type="text" id="delimiterTitle"
+      [(ngModel)]="term.delimiterTitle"
+      placeholder=" – "
+      (ngModelChange)="configService.delaySave()"
+      class="input-small-width" [style]="{ borderRightStyle: isEmpty( term.delimiterTitle ) ? 'solid' : 'none', borderTopRightRadius: isEmpty( term.delimiterTitle ) ? '6px' : '0', borderBottomRightRadius: isEmpty( term.delimiterTitle ) ? '6px' : '0' }"
+    />
+    <button pButton type="button" icon="pi pi-refresh"
+      pTooltip="{{ 'RESET' | translate }}" tooltipPosition="right" [positionLeft]="-1" [positionTop]="0"
+      (click)="term.delimiterTitle = ''; configService.delaySave()"
+      pStyleClass="p-button-warn" [style]="{ display: isEmpty( term.delimiterTitle ) ? 'none' : 'inline-flex' }"
+    ></button>
+  </div>
+  <p-checkbox id="excludeDisplayTitle"
+    [(ngModel)]="term.excludeDisplayTitle" [binary]="true"
+    (ngModelChange)="configService.delaySave()"
+    [style]="{ margin: '0 0.5rem 0.3125rem 1rem' }"
+  />
+  <label for="excludeDisplayTitle" class="input-label" style="width: auto">{{ "EXCLUDE_DISPLAY_TITLE" | translate }}</label>
+</div>
+
+<p-table
+  [value]="this.subrubrics"
+  [scrollable]="true" scrollHeight="flex"
+  styleClass="p-datatable-sm">
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="padding-left: 1rem; width: 6rem" colspan="2">{{ "PUBLICATION_TYPE" | translate }}</th>
+      <th style="text-align: center">{{ "PRIMARY" | translate }}</th>
+      <th style="text-align: center">{{ "REQUIRED" | translate }}</th>
+      <th style="text-align: center">{{ "EDITABLE" | translate }}</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-subrubric>
+    <tr>
+      <td class="name" style="padding-left: 1rem; padding-top: 0.4375rem; padding-bottom: 0.4375rem; width: 6rem">
+        {{ subrubric.subrubric.code }}
+      </td>
+      <td class="name" style="padding-left: 0.5rem; padding-top: 0.4375rem">
+        {{ subrubric.subrubric.name | multilang }}
+      </td>
+      <td style="padding-top: 0.3125rem; text-align: center">
+        <p-checkbox
+          [(ngModel)]="subrubric.primary" [binary]="true"
+          [disabled]="true"
+        />
+      </td>
+      <td style="padding-top: 0.3125rem; text-align: center">
+        <p-checkbox
+          [(ngModel)]="subrubric.required" [binary]="true"
+          [disabled]="true"
+        />
+      </td>
+      <td style="padding-top: 0.3125rem; text-align: center">
+        <p-checkbox
+          [(ngModel)]="subrubric.editable" [binary]="true"
+          [disabled]="true"
+        />
+      </td>
+    </tr>
+  </ng-template>
+
+</p-table>

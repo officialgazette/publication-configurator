@@ -1,0 +1,52 @@
+<div class="inputrow">
+  <label for="term" class="input-label">{{ "TERM" | translate }}</label>
+  <input pInputText type="text" id="term" *ngIf="translateService.currentLang === 'de'"
+    [(ngModel)]="term.term.de"
+    class="input-max-width"
+    disabled
+  />
+  <input pInputText type="text" id="term" *ngIf="translateService.currentLang === 'fr'"
+    [(ngModel)]="term.term.fr"
+    class="input-max-width"
+    disabled
+  />
+  <input pInputText type="text" id="term" *ngIf="translateService.currentLang === 'it'"
+    [(ngModel)]="term.term.it"
+    class="input-max-width"
+    disabled
+  />
+  <input pInputText type="text" id="term" *ngIf="translateService.currentLang === 'en'"
+    [(ngModel)]="term.term.en"
+    class="input-max-width"
+    disabled
+  />
+</div>
+
+<div class="inputrow">
+  <label for="key" class="input-label">{{ "KEY" | translate }}</label>
+  <input pInputText type="text" id="key"
+    [(ngModel)]="term.key"
+    class="input-max-width"
+    disabled
+  />
+</div>
+
+<div class="inputrow">
+  <label for="fromIndex" class="input-label">{{ "INDEX" | translate }}</label>
+  <input pInputText type="text" id="fromIndex"
+    [(ngModel)]="fromIndex"
+    style="width: 4.5rem"
+    disabled
+  />
+  &nbsp;<i class="pi pi-arrow-right"></i>&nbsp;
+  <p-inputNumber id="minDuration"
+    [(ngModel)]="toIndex"
+    mode="decimal" [min]="1" [max]="9999" [maxlength]="4" [format]="false"
+    [showButtons]="true"
+    [inputStyle]="{ width: '3.5rem' }"
+  />
+  <p-button label="{{ 'MOVE' | translate }}"
+    (click)="this.moveTerm( this.fromIndex, this.toIndex )"
+    styleClass="p-button" [style]="{ marginLeft: '0.5rem', height: '2.05rem' }"
+  />
+</div>
