@@ -10,22 +10,42 @@ The publication type configurator is used for simple type configuration using a 
 }%%
 
 block-beta
-block:domain["Domain 'Configuration'"]
-pubType["Publication
-Type"]
-columns 3
-space
-configTool["Configurator
+columns 4
+  pubType["Publication
+Type"] space
+block:scope:2
+configTool["Tenant
+Configurator
 Tool"]
-space:3
-Config space termDB[("
+termsConfig["Terms
+Configurator
+Tool"]
+end
+space:6
+block:outOfScope:2
+Config["Config
+file"]
+termDB[("
 Term
 Database")]
-
 end
-Config-->configTool
+
+
+Config--"save/load"-->configTool
+configTool-->Config
 termDB-->configTool
-configTool-->pubType
+outOfScope--"configures"-->pubType
+termsConfig-->termDB
+termDB--"save/load"-->termsConfig
+
+
+
+style scope stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+style outOfScope stroke:grey,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
 ```
+
+${\color{red}----}$ Scope of this repository
+
+${\color{grey}----}$ Out of scope (for the Publication Configuration Server see Repository [here](https://github.com/officialgazette/publication-configurator-server))
 
 The configuration tool can create/edit a JSON file that configures the publication types. This JSON file must be loaded into the publication types server.
