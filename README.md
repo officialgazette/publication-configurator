@@ -58,7 +58,7 @@ The terms configuration tool can create/edit a JSON file (referred as "Terms Dat
 
 ![Screenshot terms db](https://amtsblattportal.ch/static/media/screenshot_terms_db.PNG)
 
-The created/edited JSON file must then be loaded into the publication types server, see Repository [here](https://github.com/officialgazette/publication-configurator-server)). Note: For security reasons, there is no connection between the publication type configurator tools and the publication type server. The created/edited JSON files are added manually to the productive server environment.
+The created/edited JSON file must then be loaded into the publication types server, see Repository [here](https://github.com/officialgazette/publication-configurator-server)). Note: For security reasons, there is no connection between the publication type configurator tools and the publication type server. The created/edited JSON files are added manually to the productive server environment. The JSON files are stored in the browser cache only.
 
 >[!TIP]
 > To try out the configuration tools, we recommend using the sample JSON files from the standards repository and load them into the online publication type configurator at the following URLs:
