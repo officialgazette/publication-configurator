@@ -1,4 +1,4 @@
-# Publication Configurator
+# The Publication Configurator
 > [!TIP]
 > To get a better understanding of the interaction between the individual artifacts, it is recommended to read ["Big Picture"](https://github.com/officialgazette/big-picture) first.
 
