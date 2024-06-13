@@ -54,7 +54,7 @@ ${\color{grey}----}$ Out of scope (for the publication configuration server see 
 The configuration tool can create/edit a JSON file that configures the publication types. This JSON file must be loaded into the publication types server.
 ![Screenshot Config Tool](https://amtsblattportal.ch/static/media/screenshot_config_ui.PNG)
 
-The screenshot above shows the config screen of the tool. The left-hand side lists the publication types of the general terms catalogue, while the right-hand side shows the tenant-specific configuration.
+The screenshot above shows the config screen of the tool. The left-hand side lists the publication types of the general terms catalog, while the right-hand side shows the tenant-specific configuration.
 ## Terms configuration tool
 The terms configuration tool can create/edit a JSON file (referred as "Terms Database") which defines the standard terms and their assignment to a standard publication type.
 
