@@ -48,7 +48,7 @@ style outOfScope stroke:grey,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
 
 ${\color{red}----}$ Scope of this repository
 
-${\color{grey}----}$ Out of scope (for the Publication Configuration Server see Repository [here](https://github.com/officialgazette/publication-configurator-server))
+${\color{grey}----}$ Out of scope (for the publication configuration server see repository [here](https://github.com/officialgazette/publication-configurator-server))
 
 ## Tenant configuration tool
 The configuration tool can create/edit a JSON file that configures the publication types. This JSON file must be loaded into the publication types server.
