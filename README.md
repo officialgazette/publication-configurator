@@ -65,8 +65,8 @@ The created/edited JSON file must then be loaded into the publication types serv
 >[!TIP]
 > To try out the configuration tools, we recommend using the sample JSON files from the standards repository and load them into the online publication type configurator at the following URLs:
 > * Tenant configurator tool: https://nextgen.amtsblattportal.ch/terms/ui
+>   Note: A terms catalog file must first be imported (s. below), after which a tenant-specific configuration can be made from scratch.
 >
->   A sample configuration file (canton valais) can be downloaded here: https://nextgen.amtsblattportal.ch/terms/kabvs
 > * Terms configurator tool: https://nextgen.amtsblattportal.ch/terms/ui/root
 >
->   A sample terms file can be downloaded here: https://nextgen.amtsblattportal.ch/terms
+>   A sample terms catalog file can be downloaded here: https://nextgen.amtsblattportal.ch/terms
