@@ -1,6 +1,8 @@
-# Publication Type Configurator
+# Publication Configurator
+> [!TIP]
+> To get a better understanding of the interaction between the individual artifacts, it is recommended to read ["Big Picture"](https://github.com/officialgazette/big-picture) first.
 
-The publication type configurator is used for simple type configuration using a graphical user interface. A configuration file of a publisher (tenant) can be imported and edited in the tool.
+The publication configurator is used for simple type configuration using a graphical user interface. A configuration file of a tenant can be imported and edited in the tool.
 ```mermaid
 
 %%{
@@ -12,22 +14,22 @@ The publication type configurator is used for simple type configuration using a 
 block-beta
 columns 4
   pubType["Publication
-Type"] space
+type"] space
 block:scope:2
 configTool["Tenant
-Configurator
-Tool"]
+configurator
+tool"]
 termsConfig["Terms
-Configurator
-Tool"]
+configurator
+tool"]
 end
 space:6
 block:outOfScope:2
-Config["Config
+Config["Configuration
 file"]
 termDB[("
-Term
-Database")]
+Terms
+catalog")]
 end
 
 
