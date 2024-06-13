@@ -54,13 +54,13 @@ ${\color{grey}----}$ Out of scope (for the publication configuration server see 
 The configuration tool can create/edit a JSON file that configures the publication types. This JSON file must be loaded into the publication types server.
 ![Screenshot Config Tool](https://amtsblattportal.ch/static/media/screenshot_config_ui.PNG)
 
-The screenshot above shows the config screen of the tool. The left-hand side lists the general terms catalog, while the right-hand side shows the tenant-specific configuration.
+The screenshot above shows the config screen of the tool. The left-hand side lists the publication types of the general terms catalogue, while the right-hand side shows the tenant-specific configuration.
 ## Terms configuration tool
 The terms configuration tool can create/edit a JSON file (referred as "Terms Database") which defines the standard terms and their assignment to a standard publication type.
 
 ![Screenshot terms db](https://amtsblattportal.ch/static/media/screenshot_terms_db.PNG)
 
-The created/edited JSON file must then be loaded into the publication types server, see Repository [here](https://github.com/officialgazette/publication-configurator-server)). Note: For security reasons, there is no connection between the publication type configurator tools and the publication type server. The created/edited JSON files are added manually to the productive server environment. The JSON files are stored in the browser cache only.
+The created/edited JSON file must then be loaded into the publication configuration server, see Repository [here](https://github.com/officialgazette/publication-configurator-server)). Note: For security reasons, there is no connection between the publication type configurator tools and the publication type server. The created/edited JSON files are added manually to the productive server environment. The JSON files are stored in the browser cache only.
 
 >[!TIP]
 > To try out the configuration tools, we recommend using the sample JSON files from the standards repository and load them into the online publication type configurator at the following URLs:
