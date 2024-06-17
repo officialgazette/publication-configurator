@@ -58,7 +58,7 @@ The screenshot above shows the config screen of the tool. The left-hand side lis
 ## Terms configuration tool
 The terms configuration tool can create/edit a JSON file (referred as "Terms Database") which defines the standard terms and their assignment to a standard publication type.
 
-![Screenshot terms db](https://amtsblattportal.ch/static/media/screenshot_terms_db.PNG)
+![Screenshot terms db](https://amtsblattportal.ch/static/media/screenshot_terms_db2.PNG)
 
 The created/edited JSON file must then be loaded into the publication configuration server, see Repository [here](https://github.com/officialgazette/publication-configurator-server)). Note: For security reasons, there is no connection between the publication type configurator tools and the publication type server. The created/edited JSON files are added manually to the productive server environment. The JSON files are stored in the browser cache only.
 
